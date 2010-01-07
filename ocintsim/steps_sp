@@ -1,2 +1,0 @@
-cd simple_test
-../bin/tsim_ocin -config ocin_test64.cfg -n 1000
