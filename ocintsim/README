@@ -1,0 +1,13 @@
+To compile,
+
+make ocin
+
+To debug,
+
+make ocin DEBUG=true
+
+To run simple test,
+
+cd simple_test
+../bin/tsim_ocin -config simple_test.cfg -n 1000
+

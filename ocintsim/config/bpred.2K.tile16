@@ -1,0 +1,34 @@
+max_blocks		16
+num_tiles		16
+max_threads		4
+max_exits		8
+block_size		640
+chunk_size		128
+addr_len 		40
+eff_addr_len 		33
+pred_latency		3
+ll1_exit_len		2
+local_history_len	12
+local_l1_size		128
+local_l2_size		256
+gl1_exit_len		2
+global_history_len	15
+global_l2_size		1024
+cl1_exit_len		2
+choice_history_len	15
+choice_ctr_len		3
+choice_l2_size		1024
+branch_type_size	512
+branch_type_type_len	2
+btb_size		256
+btb_offset_len		11
+ctb_size		32
+ctb_addr_len		33
+ctb_offset_len		9
+ras_stack_size		256
+ras_addr_len		33
+bank_addr_bits_start     7
+
+#comments - per tile predictor in enhanced dist. predictor config 
+# - 16592 bits = approx 16.25Kbits = approx 2KB
+

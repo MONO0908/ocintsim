@@ -1,0 +1,31 @@
+max_blocks		4
+num_tiles		4
+max_threads		4
+max_exits		8
+block_size		640
+chunk_size		128
+addr_len 		40
+eff_addr_len 		33
+pred_latency		3
+ll1_exit_len		2
+local_history_len	11
+local_l1_size		64
+local_l2_size		128
+gl1_exit_len		3
+global_history_len	13
+global_l2_size		512
+cl1_exit_len		2
+choice_history_len	13
+choice_ctr_len		3
+choice_l2_size		512
+branch_type_size	256
+branch_type_type_len	2
+btb_size		128
+btb_offset_len		9
+ctb_size		16
+ctb_addr_len		33
+ctb_offset_len		9
+ras_stack_size		64
+ras_addr_len		33
+
+#comments - per tile predicor in default dist. predictor config - 8Kbits
