@@ -188,7 +188,9 @@ build: $(THE_EXE) $(THE_LIB)
 .PHONY: clean clobber
 clean:
 	rm -f lib/*/*.opp
+	rm -f lib/*/*/*.opp
 	rm -f lib/*/*.o
+	rm -f lib/*/*/*.o
 
 clobber: clean
 	rm -f bin/tsim_*
