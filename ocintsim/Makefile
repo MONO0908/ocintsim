@@ -5,11 +5,11 @@
 # assume gcc compiler
 #CC      = /lusr/opt/gcc-3.4.3/bin/gcc
 #CXX     = /lusr/opt/gcc-3.4.3/bin/g++
-#CC      = gcc 
-CC      = gcc-4.1 
+CC      = gcc 
+#CC      = gcc-4.1 
 ##CXX     = g++ -pg
-#CXX     = g++ 
-CXX     = g++-4.1 
+CXX     = g++ 
+#CXX     = g++-4.1 
 
 # customize according to MODEL
 ifeq ($(MODEL),tsim)

@@ -5,7 +5,7 @@ void ocin_router_sel::init(ocin_router *parent, const string &_name) {
 	name = _name;
 	
 	// max int
-	MAX_INT = std::numeric_limits<int>::max();
+	MAX_INT = numeric_limits<int>::max();
 
 #ifdef DEBUG	
         {

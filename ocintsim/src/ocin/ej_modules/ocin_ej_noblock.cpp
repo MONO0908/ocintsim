@@ -62,7 +62,7 @@ void ocin_ej_noblock::update() {
 #endif
         // if non-empty then deque the flit and do the accounting
         int vc_idx = ej_it->vc_index;
-        ocin_flit * ej_flit = (*re_it)->deque(vc_idx);
+        ocin_flit * ej_flit = (*re_it)->mydeque(vc_idx);
         
 #ifdef PARANOID
         // brg: Make sure actual # of hops matches the expected hop count

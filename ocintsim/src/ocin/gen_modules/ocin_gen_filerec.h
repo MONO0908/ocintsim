@@ -3,6 +3,8 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <stdint.h>
+
 #include "ocin_defs.h"
 
 /* This header contains 2 header formats: 

@@ -4,6 +4,8 @@
 #include "ocin_defs.h"
 #include "ocin_interface.h"
 #include "ocin_helper.h"
+#include <limits>
+
 //#include "ocin_router.h"   //--- this messes up the inheritance hierarchy
 
 class ocin_router;

@@ -60,7 +60,7 @@ class ocin_router_vc_fifo {
 	          bool is_injector,
 	          bool is_ejector);
 	void enque(ocin_flit *flin_in);
-	ocin_flit* deque();
+	ocin_flit* mydeque();
         void update_fifo_head();
 	// helper functions
 	inline bool is_full()  { return (data.size()==_buf_size); };

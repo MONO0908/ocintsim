@@ -124,12 +124,12 @@ void ocin_router_vc_fifo::enque(ocin_flit *flit_in) {
 #endif
 }
 
-/* deque()
+/* mydeque()
  *  - Removes a flit from the fifo
  *  - cleans up control info, if the flit was a tail
  *  - updates control info if an SOP is in the fifo 
  */
-ocin_flit* ocin_router_vc_fifo::deque() {
+ocin_flit* ocin_router_vc_fifo::mydeque() {
 	ocin_flit *flit = data.front();
 	data.pop_front();
 	

@@ -51,13 +51,13 @@ void ocin_router_ej::enque(ocin_flit *flit) {
 }
 
 
-/* deque()
+/* mydeque()
  *  - deque's the flit from the given VC FIFO
  *  - updates credit count visible to the router
  */
-ocin_flit * ocin_router_ej::deque(int vc_idx) {
+ocin_flit * ocin_router_ej::mydeque(int vc_idx) {
     // pop the flit from the FIFO
-    ocin_flit *flit = ej_fifos[vc_idx].deque();
+    ocin_flit *flit = ej_fifos[vc_idx].mydeque();
 
     // update credits
     ocin_vc_status *v = &ej_vc_stats[vc_idx];

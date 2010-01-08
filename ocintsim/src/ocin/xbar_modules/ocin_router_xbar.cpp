@@ -35,7 +35,7 @@ void ocin_router_xbar::transfer() {
 		xbar_q.pop_front();
 		   
 		// De-queue the flit @ the head of the queue
-		ocin_flit *flit = src_vc->deque();
+		ocin_flit *flit = src_vc->mydeque();
 		flit->vc_idx = src_vc->vc_out_index;
 		
 		// route the flit to the output port

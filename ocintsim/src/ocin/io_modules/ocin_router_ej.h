@@ -28,7 +28,7 @@ class ocin_router_ej {
    	void init(ocin_router *parent, const string &_name);
    	void enque(ocin_flit *flit);
 //   	void enque(ocin_credit *credit);
-   	ocin_flit * deque(int vc_idx);
+   	ocin_flit * mydeque(int vc_idx);
    	// transmit() is used by "real" output ports - not by the ejection port
    	//void transmit();
   

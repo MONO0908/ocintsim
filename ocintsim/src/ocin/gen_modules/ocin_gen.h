@@ -10,6 +10,7 @@
 #include "ocin_helper.h"
 #include <vector>
 #include <map>
+#include <stdint.h>
 
 class ocin_node_info;
 

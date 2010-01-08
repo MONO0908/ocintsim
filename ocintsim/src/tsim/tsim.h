@@ -13,6 +13,9 @@
 #include <iomanip>
 #include <fstream>
 #include <assert.h>
+#include <cstring>
+#include <cstdlib>
+
 
 using namespace std;
 
