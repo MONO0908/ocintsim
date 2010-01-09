@@ -213,11 +213,11 @@ void ocin_gen_file::openfile() {
 
   if(filepart == 0) {         // only look for header on first file
     // part
-    unsigned long header;
+    unsigned  header;
     if (is_compressed) {
-      gzread( gzpatt_file, &header, sizeof(header));
+      gzread( gzpatt_file, &header, sizeof(unsigned));
     } else {
-      fread(&header, sizeof(unsigned long), 1, patt_file);
+      fread(&header, sizeof(unsigned), 1, patt_file);
     }
     
     if (header == 7) {        // opn headers have 0x7 as first word
@@ -235,8 +235,8 @@ void ocin_gen_file::openfile() {
     } else {
       splash = false;
     }
+    printf("Got Header of %lx\n", header);
 
-    cout <<"Got Header of "<<header<<endl;
   }
   
 
@@ -401,22 +401,30 @@ ocin_gen_filerec * ocin_gen_file::get_record() {
   if (splash) {
     char inputstr[100];
     char * endflag = NULL;
-    if (is_compressed) {
-      endflag = gzgets(gzpatt_file, inputstr, 99);
-    } else {
-      endflag = fgets(inputstr, 99, patt_file);
-    }
+
+    unsigned cycle, src, dst, size;
+    istringstream inputline;
+    do {
+      if (is_compressed) {
+	endflag = gzgets(gzpatt_file, inputstr, 99);
+      } else {
+	endflag = fgets(inputstr, 99, patt_file);
+      }
 
     //    printf("Got this back %x",endflag);
 
-    if (endflag == NULL) {
-      return filerec_ptr;           // return a null pointer if we hit the
-    } 
+      if (endflag == NULL) {
+	return filerec_ptr;           // return a null pointer if we hit the
+      } 
+      inputline.clear();
+      inputline.str(inputstr);
+      
 
-    istringstream inputline(inputstr);
+      inputline >>cycle>>src>>dst>>size;
+    } while (src==dst);
 
-    unsigned cycle, src, dst, size;
-    inputline >>cycle>>src>>dst>>size;
+      //    cout <<"Got line: "<< inputstr<<endl;
+    //    cout << "Found cycle: "<<cycle<<" src:"<<src<<" dst"<<dst<<" size:"<<size<<endl;
 
     if(!inputline) {            // we could not get proper data from
                                 // the inputstringstream
@@ -425,8 +433,6 @@ ocin_gen_filerec * ocin_gen_file::get_record() {
 
     filerec_ptr = new ocin_gen_filerec; // now we'll need this...
 
-    //    cout <<"Got line: "<< inputstr<<endl;
-    //    cout << "Found cycle: "<<cycle<<" src:"<<src<<" dst"<<dst<<" size:"<<size<<endl;
     
 
     // now we can start filling the info:

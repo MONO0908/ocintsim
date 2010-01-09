@@ -38,7 +38,7 @@ ifeq ($(MODEL),ocin)
 #	IFLAGS += -Isrc/ocin/vis_modules
 	LIBS   += lib/libtsim.a
 #	LFLAGS += -lgd -lpng -lz -ljpeg -lm -lgsl -lgslcblas 
-	LFLAGS += -lz -lm -lgsl -lgslcblas 
+	LFLAGS += -lz -lm
 	CPPS   += $(wildcard src/tsim/*.cpp)
 	CPPS   += $(wildcard src/ocin/*.cpp)
 	CPPS   += $(wildcard src/ocin/io_modules/*.cpp)

@@ -283,8 +283,6 @@ void ocin_top::create_generator() {
       gen_ptr = new ocin_gen_rand(nodes, msg_map, node_inst_data, prertrs);
     } else if (gentp_it->compare("bitcomp") ==0) {
       gen_ptr = new ocin_gen_bitcomp(nodes, msg_map, node_inst_data, prertrs);
-    } else if (gentp_it->compare("modeled") ==0) {
-      gen_ptr = new ocin_gen_modeled(nodes, msg_map, node_inst_data, prertrs);
     } else if (gentp_it->compare("bitrev") ==0) {
       gen_ptr = new ocin_gen_bitrev(nodes, msg_map, node_inst_data, prertrs);
     } else if (gentp_it->compare("randpair") ==0) {
@@ -1506,7 +1504,7 @@ void ocin_top::create_vis () {
   // needs a pointer to the inst data structure at instatiation time
   //  vis_ptr = new ocin_vis(node_inst_data,nodes);
 
-  //  vis_ptr->init();
+  // vis_ptr->init();
 
 
 }
