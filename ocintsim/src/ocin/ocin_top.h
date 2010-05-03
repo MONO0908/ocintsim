@@ -100,7 +100,7 @@ public:
    vector<string> node_names;   /* used to access various maps in the
                                    same order each time */
 
-   //ocin_vis * vis_ptr;		/* pointer to the visualizer object */
+   ocin_vis * vis_ptr;		/* pointer to the visualizer object */
    bool vis_all;		/* flag that means no start and
 				   stop */
 };
