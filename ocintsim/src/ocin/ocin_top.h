@@ -18,7 +18,7 @@
 #include "ocin_ej.h"
 #include "ocin_ej_noblock.h"
 #include "ocin_interface.h"
-//#include "ocin_vis.h"
+#include "ocin_vis.h"
 #include "ocin_prtr.h"
 #include "ocin_prtr_xy.h"
 #include "ocin_prtr_omni.h"

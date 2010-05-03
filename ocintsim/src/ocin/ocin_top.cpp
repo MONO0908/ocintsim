@@ -1502,9 +1502,9 @@ void ocin_top::create_tiles () {
 void ocin_top::create_vis () {
 
   // needs a pointer to the inst data structure at instatiation time
-  //  vis_ptr = new ocin_vis(node_inst_data,nodes);
+  vis_ptr = new ocin_vis(node_inst_data,nodes);
 
-  // vis_ptr->init();
+  vis_ptr->init();
 
 
 }
@@ -1729,17 +1729,17 @@ void ocin_top::update() {
   
   // visualization
   if (ocin_cycle_count % param_stats_interval == 0) {      
-//     if(param_vis_on ==1) {
-//       if (vis_all) {
-//         vis_ptr->print(false);
-//       } 
-//       else {
-//         if ((ocin_cycle_count >= param_vis_start) &&
-//             (ocin_cycle_count <= param_vis_stop)) {
-//           vis_ptr->print(false);
-//         }
-//       }
-//     }
+     if(param_vis_on ==1) {
+       if (vis_all) {
+         vis_ptr->print(false);
+       } 
+       else {
+         if ((ocin_cycle_count >= param_vis_start) &&
+             (ocin_cycle_count <= param_vis_stop)) {
+           vis_ptr->print(false);
+         }
+       }
+     }
     
     // Temporarily moving this out from under the exclusvity w/
     // checkpointed monitors.  This should be fine as long as we are
@@ -1761,8 +1761,7 @@ void ocin_top::finalize() {
 
   if(param_vis_on ==1) {
     // if vis is enabled, always print final pic
-//    vis_ptr->print(true);
-    /*
+    vis_ptr->print(true);
       if (vis_all) {
 
       } else {
@@ -1771,7 +1770,6 @@ void ocin_top::finalize() {
       vis_ptr->print(true);
       }
       }
-    */    
   }      
 
   print_stats(true);            // print the final totals

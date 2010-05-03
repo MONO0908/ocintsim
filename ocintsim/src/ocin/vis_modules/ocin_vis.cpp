@@ -99,13 +99,13 @@ void ocin_vis::print(bool final) {
   int x_pos = im_x_max - 270;
   char buf[100];
   int brect[8];
-  char *fc = "/usr/share/fonts/ttf-bitstream-vera/Vera.ttf";
+  char *fc = (char *) "/usr/share/fonts/truetype/ttf-dejavu/DejaVuSans.ttf";
   char *err;
 
   sprintf(buf, "Link monitor type:\n%s ", param_vis_link_type.c_str());
   
   err = gdImageStringFT(im,&brect[0],black,fc,ft_size,0.0,x_pos,y_pos,buf);
-  if (err) {fprintf(stderr,err);}
+  if (err) {fprintf(stderr,"%s",err);}
 
   y_pos += 65;
   x_pos += 20;
@@ -118,7 +118,7 @@ void ocin_vis::print(bool final) {
   }
 
   err = gdImageStringFT(im,&brect[0],black,fc,ft_size,0.0,x_pos,y_pos,buf);
-  if (err) {fprintf(stderr,err);}
+  if (err) {fprintf(stderr,"%s",err);}
 
   //  gdImageString(im, gdFontGetLarge(), x_pos, y_pos, (unsigned char *)buf, black);
 
@@ -133,7 +133,7 @@ void ocin_vis::print(bool final) {
 
   y_pos += 255;
   err = gdImageStringFT(im,&brect[0],black,fc,ft_size,0.0,x_pos,y_pos,buf);
-  if (err) {fprintf(stderr,err);}
+  if (err) {fprintf(stderr,"%s",err);}
   //  gdImageString(im, gdFontGetLarge(), x_pos, y_pos, (unsigned char *)buf, black);
 
   // Also print the types of monitor shown
@@ -149,7 +149,7 @@ void ocin_vis::print(bool final) {
 
   y_pos += 50;
   //  err = gdImageStringFT(im,&brect[0],black,fc,ft_size,0.0,x_pos,y_pos,buf);
-  //  if (err) {fprintf(stderr,err);}
+  //  if (err) {fprintf(stderr,"%s",err);}
 
 
 
@@ -165,7 +165,7 @@ void ocin_vis::print(bool final) {
   // create a file name
   stringstream filename;
   char cycle_txt[20];
-  sprintf(cycle_txt,"%012d",ocin_cycle_count);
+  sprintf(cycle_txt,"%012d",(unsigned int) ocin_cycle_count);
 
   // place cycle count in image:
   //  gdImageString(im, gdFontGetLarge(),10, 10, (unsigned char *)cycle_txt, black);

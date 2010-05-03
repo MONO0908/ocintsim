@@ -22,7 +22,6 @@ ifeq ($(MODEL),tsim)
 endif
 ifeq ($(MODEL),ocin)
 	THE_EXE = bin/tsim_ocin(CONDOR_EXE)
-#	VPATH   = src/ocin:src/ocin/vis_modules:src/ocin/ej_modules:src/ocin/gen_modules:src/ocin/prtr_modules:src/ocin/io_modules:src/ocin/vc_modules:src/ocin/rt_modules:src/ocin/xbar_modules:src/ocin/monitors:src/ocin/sel_modules:src/tsim
 	VPATH   = src/ocin:src/ocin/vis_modules:src/ocin/ej_modules:src/ocin/gen_modules:src/ocin/prtr_modules:src/ocin/io_modules:src/ocin/vc_modules:src/ocin/rt_modules:src/ocin/xbar_modules:src/ocin/monitors:src/ocin/sel_modules:src/tsim
 	IFLAGS += -Isrc/tsim
 	IFLAGS += -Isrc/ocin
@@ -35,10 +34,10 @@ ifeq ($(MODEL),ocin)
 	IFLAGS += -Isrc/ocin/ej_modules
 	IFLAGS += -Isrc/ocin/monitors
 	IFLAGS += -Isrc/ocin/sel_modules
-#	IFLAGS += -Isrc/ocin/vis_modules
+	IFLAGS += -Isrc/ocin/vis_modules
 	LIBS   += lib/libtsim.a
-#	LFLAGS += -lgd -lpng -lz -ljpeg -lm -lgsl -lgslcblas 
-	LFLAGS += -lz -lm
+	LFLAGS += -lgd -lpng -lz -ljpeg -lm 
+	LFLAGS += -lz -lm -lgsl -lgslcblas
 	CPPS   += $(wildcard src/tsim/*.cpp)
 	CPPS   += $(wildcard src/ocin/*.cpp)
 	CPPS   += $(wildcard src/ocin/io_modules/*.cpp)
@@ -50,7 +49,7 @@ ifeq ($(MODEL),ocin)
 	CPPS   += $(wildcard src/ocin/ej_modules/*.cpp)
 	CPPS   += $(wildcard src/ocin/monitors/*.cpp)
 	CPPS   += $(wildcard src/ocin/sel_modules/*.cpp)
-#	CPPS   += $(wildcard src/ocin/vis_modules/*.cpp)
+	CPPS   += $(wildcard src/ocin/vis_modules/*.cpp)
 	HDRS   += $(wildcard src/tsim/*.h)
 	HDRS   += $(wildcard src/ocin/*.h)
 	HDRS   += $(wildcard src/ocin/io_modules/*.h)
@@ -62,7 +61,7 @@ ifeq ($(MODEL),ocin)
 	HDRS   += $(wildcard src/ocin/ej_modules/*.h)
 	HDRS   += $(wildcard src/ocin/monitors/*.h)
 	HDRS   += $(wildcard src/ocin/sel_modules/*.h)
-#	HDRS   += $(wildcard src/ocin/vis_modules/*.h)
+	HDRS   += $(wildcard src/ocin/vis_modules/*.h)
 endif
 
 # common, derived variables
@@ -148,7 +147,7 @@ help:
 #
 
 .PHONY: all
-all: arch proc ocn sys critical
+all: ocin
 
 .PHONY: tsim
 tsim:

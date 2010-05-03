@@ -1,5 +1,9 @@
 #include "ocin_vis_node.h"
 
+int ocin_vis_node::link_max_val;
+int ocin_vis_node::link_min_val;
+int ocin_vis_node::fifo_max_val;
+int ocin_vis_node::fifo_min_val;
 
 void ocin_vis_node::init (const vector <int>& coord, const vector <int>& max, 
                           int size, int space, 
@@ -28,7 +32,7 @@ void ocin_vis_node::init (const vector <int>& coord, const vector <int>& max,
   // too long...
 
   int brect[8];
-  char *fc = "/usr/share/fonts/ttf-bitstream-vera/Vera.ttf";
+  char *fc = (char *) "/usr/share/fonts/truetype/ttf-dejavu/DejaVuSans.ttf";
   char *err;
 
   char buf[30];
@@ -38,7 +42,7 @@ void ocin_vis_node::init (const vector <int>& coord, const vector <int>& max,
   // this stuff does not work at UT for some reason
   // printing string to null to get size of text
   err = gdImageStringFT(NULL,&brect[0],0,fc,ft_size,0.,0,0,buf);
-  if (err) {fprintf(stderr,err); exit(0);}
+  if (err) {fprintf(stderr,"%s",err); exit(0);}
 
   // 1/2 box size plus edge give middle then subtract off 1/2 text
   // size. I'm not gonna worry about rounding here..
@@ -498,7 +502,7 @@ void ocin_vis_node::print(gdImagePtr im) {
   //This stuff does not work at UT
   // Write name in it
   int brect[8];
-  char *fc = "/usr/share/fonts/ttf-bitstream-vera/Vera.ttf";
+  char *fc = (char *) "/usr/share/fonts/truetype/ttf-dejavu/DejaVuSans.ttf";
   char *err;
 
   char buf[30];
@@ -506,7 +510,7 @@ void ocin_vis_node::print(gdImagePtr im) {
   name.copy( buf, 24 );
 
   err = gdImageStringFT(im,&brect[0],black,fc,ft_size,0.0,str_x,str_y,buf);
-  if (err) {fprintf(stderr,err);}
+  if (err) {fprintf(stderr,"%s",err);}
   
 
   
